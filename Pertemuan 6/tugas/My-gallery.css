@@ -2,7 +2,7 @@
     margin: 5px;
     padding: 5px;
     box-sizing: border-box;
-    font-style: arial;
+    font-family: arial;
 
 }
 
@@ -104,7 +104,8 @@ form textarea {
     border: 1px solid #c1f0fe;
 }
 
-form input[type=submit]{
+form input[type=submit]
+{
     background-color: rgb(15, 91, 177);
     color:whitesmoke ;
     padding: 2px;
@@ -126,6 +127,10 @@ form input[type="date"]
 form input[type="submit"]:hover
 {
     background-color: aqua;
+}
+
+img{
+    margin: 0 auto auto auto;
 }
 footer
 {
