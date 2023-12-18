@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>menghitus luas Luas dan Keliing Lingkaran</title>
+</head>
+<body>
+  <h2>menghitus Luas dan Keliing Lingkaran</h2>
+  
+  <form id="circleForm">
+    <label for="radius">Enter Radius or Diameter:</label>
+    <input type="number" id="radius" name="radius" step="any">
+    <button type="button" onclick="calculate()">Calculate</button>
+  </form>
+
+  <h4>Results:</h4>
+  <p id="areaResult">Hasil Luas : </p>
+  <p id="perimeterResult">Hasi Keliling: </p>
+
+  <script>
+    function calculate() {
+      const radiusOrDiameter = parseFloat(document.getElementById('radius').value);
+
+      if (!isNaN(radiusOrDiameter)) {
+        const radius = radiusOrDiameter / 2;
+        
+        const area = Math.PI * Math.pow(radius, 2);
+        const perimeter = 2 * Math.PI * radius;
+
+        document.getElementById('areaResult').innerText = `Area: ${area.toFixed(2)}`;
+        document.getElementById('perimeterResult').innerText = `Perimeter: ${perimeter.toFixed(2)}`;
+      } else {
+        
+        document.getElementById('areaResult').innerText = 'Area: Invalid input';
+        document.getElementById('perimeterResult').innerText = 'Perimeter: Invalid input';
+      }
+    }
+  </script>
+</body>
+</html>

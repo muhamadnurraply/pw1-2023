@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JBasic JS</title>
+</head>
+<body>
+    <!-- HTML code -->
+    <p id="dinoName"></p>
+    
+   <input type="number" id="age" min="0"> <br>
+   <button onclick="      ">check</button>
+
+    <p id="status"></p>
+
+    <h1>gss</h1>
+    <!-- JS code -->
+    <script>
+        let dinoName = 'tricera';
+        
+        document.getElementById("dinoName").innerHTML = `dino name is ${dinoName}` 
+
+        function getStatus() {
+            let dinoAge = document.getElementById("age").value;
+
+            if (dinoAge < 800) {
+                return document.getElementById("status").innerHTML = "blm cukupumur"
+
+            } else if (dinoAge > 800) { 
+                return document.getElementById("status").innerHTML = "sudah dewasa"
+            } else {
+                return document.getElementById("status").innerHTML = "pas"
+            }
+
+        }
+    </script>
+</body>
+</html>
