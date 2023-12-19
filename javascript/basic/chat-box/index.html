@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat box</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        fieldset {
+            height: 2000px;
+            margin: 10px;
+            padding: 30px;
+        }
+
+        .container {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            height: 350px;
+            width: 300px;
+            background-color:  rgb(23, 202, 202);
+        }
+        section {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            border: 1px solid #000;
+            margin: 0 auto;
+
+        }
+        h1 {
+            font-size: 20px;
+            text-align: center;
+            padding: 10px 0 ;
+            border-bottom: 1px solid #000;
+        }
+        div#textBox {
+            height: 65%;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000;
+            background-color: white;
+        }
+        .floating {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        input,
+        button {
+            padding: 10px;
+            border-radius: 10px;
+        }
+        button:hover {
+            background: rgb(34, 177, 170);
+            transition: 0.5s;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HTML -->
+    <fieldset>
+        <legend>Simple Chat Box</legend>
+
+
+        <div class="container">
+            <section>
+                    <h1>Simple Chat Box</h1>
+                    <div id="textBox" >
+                     <!-- your text message -->
+                    </div>
+                    <div class="floating">
+                        <input type="text" id="inputText">
+                        <button onclick="sendMessage()">send</button>
+                    </div>
+            </section>
+        </div>
+
+
+        
+
+    </fieldset>
+
+    
+    <script>
+        // Java script
+        function sendMessage() {
+            let text = document.getElementById("inputText").value;
+            let paragraf = document.createElement("p");
+            let box = document.getElementById("textBox");
+            paragraf.innerHTML = String(text);
+
+            return box.appendChild(paragraf).style.margin="10px";
+
+        }
+    </script>
+</body>
+</html>
