@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div id="loginForm">
+        <h2>Login</h2>
+        <form onsubmit="login(event)">
+            <label for="username">Username:</label>
+            <input type="text" id="Username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="loginPassword" required>
+            <br>
+            <button type="submit">Login</button>
+            <p class="error" id="loginError"></p>
+        </form>
+    </div>
+
+    <div id="registerForm">
+        <h2>Register</h2>
+        <form onsubmit="register(event)">
+            <label for="newUsername">Username</label>
+            <input type="text" id="newUsername" required>
+            <br>
+            <label for="newPassword">Password:</label>
+            <input type="password" id="newPassword" required>
+            <br>
+            <button type="submit">Register</button>
+            <p class="error" id="registerError "></p>
+        </form>
+    </div>
+    
+    <script>
+        function login(event) {
+            event.preventDefault();
+
+            let username = document.getElementById("Username").value;
+            let password = document.getElementById("loginPassword").value;
+
+            if (username === "nur-rafly" && password === "student-nf23") {
+                alert("Login successful!");
+               
+            } else {
+                document.getElementById("loginError").innerText = "Invalid username or password";
+            }
+        }
+
+        function register(event) {
+            event.preventDefault();
+
+            let newUsername = document.getElementById("newUsername").value;
+            let newPassword = document.getElementById("newPassword").value;
+
+            alert("Registration successful!");
+        }
+
+        function showLoginForm() {
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("registerForm").style.display = "none";
+        }
+
+        function showRegisterForm() {
+            document.getElementById("registerForm").style.display = "block";
+            document.getElementById("loginForm").style.display = "none";
+        }
+    </script>
+
+
+    <h2>Choose an action</h2>
+    <button onclick="showLoginForm()">Login</button>
+    <button onclick="showRegisterForm()">Register</button>
+
+</body>
+</html>
