@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #cfe5ea;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px black;
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #db8fec;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 12px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+   
+
+<form id="validationForm">
+    <h2>Login Form</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" required maxlength="30"><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br>
+
+    <label for="departureTime">Departure Time:</label>
+    <input type="time" id="departureTime" required><br>
+
+    <label for="numTickets">Number of Tickets:</label>
+    <input type="number" id="numTickets" required min="1" max="10"><br>
+
+    <button type="button" onclick="validateForm()">Submit</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+    function validateForm() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let departureTime = document.getElementById("departureTime").value;
+        let numTickets = document.getElementById("numTickets").value;
+
+        let error = false;
+        let errorMessage = "";
+
+   
+        if (name.length === 0 || name.length > 30) {
+            error = true;
+            errorMessage += "Name is required and should be less than 30 characters.<br>";
+        }
+
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            error = true;
+            errorMessage += "Invalid email format.<br>";
+        }
+
+        let timePattern = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+        if (!timePattern.test(departureTime)) {
+            error = true;
+            errorMessage += "Invalid departure time format (24-hour format HH:mm).<br>";
+        }
+
+        if (numTickets < 1 || numTickets > 10 || isNaN(numTickets) || numTickets % 1 !== 0) {
+            error = true;
+            errorMessage += "Number of tickets should be an integer between 1 and 10.<br>";
+        }
+
+
+        let resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = "";
+
+        if (error) {
+            resultDiv.innerHTML = '<div class="error">' + errorMessage + '</div>';
+        } else {
+            resultDiv.innerHTML = '<strong>Name:</strong> ' + name + '<br>' +
+                                  '<strong>Email:</strong> ' + email + '<br>' +
+                                  '<strong>Departure Time:</strong> ' + departureTime + '<br>' +
+                                  '<strong>Number of Tickets:</strong> ' + numTickets;
+        }
+    }
+</script>
+
+</body>
+</html>
